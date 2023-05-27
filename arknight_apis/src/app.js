@@ -10,9 +10,7 @@ const cors = require('cors')
 // Rutas
 const [ 
     userRouter, 
-    productRouter, 
-    orderRouter, 
-    categoryRouter
+    productRouter,
 ] = require("./routes");
 
 const app = express();
@@ -29,8 +27,6 @@ app.use(cors());
 // Rutas
 app.use(`/api/users`, userRouter);
 app.use(`/api/products`, productRouter);
-app.use(`/api/orders`, orderRouter);
-app.use(`/api/categories`, categoryRouter);
 
 // Manejo de errores
 app.use((err, req, res, next) => {

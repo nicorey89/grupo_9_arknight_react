@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    const alias = "OrderItem";
+    const alias = "Orden_item";
 
     const cols = {
         id: {
@@ -8,11 +8,11 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true,
             primaryKey: true,
         },
-        orderId: {
+        order_id: {
             type: dataTypes.INTEGER(11),
             allowNull: false,
         },
-        productId: {
+        product_id: {
             type: dataTypes.INTEGER(11),
             allowNull: false,
         },
@@ -23,25 +23,25 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     const config = {
-        tableName: "order_items",
+        tableName: "ordenes_items",
         createdAt: "created_at",
         updatedAt: "updated_at",
     }
 
-    const ORDER_ITEM = sequelize.define(alias, cols, config);
+    const ORDEN_ITEM = sequelize.define(alias, cols, config);
 
-    ORDER_ITEM.associate = (models) => {
+    ORDEN_ITEM.associate = (models) => {
         
-        ORDER_ITEM.belongsTo(models.Product, {
+       /*  ORDER_ITEM.hasMany(models.Product, {
             as: "products",
             foreignKey: "productId",
-        });
+        }); */
 
-        ORDER_ITEM.belongsTo(models.Order, {
-            as: "order",
-            foreignKey: "orderId",
+        ORDEN_ITEM.belongsTo(models.Orden, {
+            as: "orden",
+            foreignKey: "orden_id",
         })
     }
 
-    return ORDER_ITEM;
+    return ORDEN_ITEM;
 }

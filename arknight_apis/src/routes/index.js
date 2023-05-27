@@ -1,7 +1,5 @@
-const userRouter = require("./user");
-const productRouter = require("./product");
-const orderRouter = require("./order");
-const categoryRouter = require("./category");
+const userRouter = require("./users");
+const productRouter = require("./products");
 
 
-module.exports = [userRouter, productRouter, orderRouter, categoryRouter];
+module.exports = [userRouter, productRouter];

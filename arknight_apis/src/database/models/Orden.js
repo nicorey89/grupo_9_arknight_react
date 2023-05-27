@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    const alias = "Order";
+    const alias = "Orden";
 
     const cols = {
         id: {
@@ -8,7 +8,7 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true,
             primaryKey: true,
         },
-        userId: {
+        user_id: {
             type: dataTypes.INTEGER(11),
             allowNull: false,
         },
@@ -24,20 +24,20 @@ module.exports = (sequelize, dataTypes) => {
         updatedAt: "updated_at",
     }
 
-    const ORDER = sequelize.define(alias, cols, config);
+    const ORDEN = sequelize.define(alias, cols, config);
 
-    ORDER.associate = (models) => {
+    ORDEN.associate = (models) => {
 
-        ORDER.belongsTo(models.User, {
-            as: "user",
-            foreignKey: "userId",
-        });
+/*         ORDEN.belongsTo(models.User, {
+            as: "usuario",
+            foreignKey: "user_id",
+        }); */
 
-        ORDER.hasMany(models.OrderItem, {
-            as: "orderItems",
-            foreignKey: "orderId"
+        ORDEN.hasMany(models.Orden_item, {
+            as: "orden_items",
+            foreignKey: "orden_id"
         });
     }
 
-    return ORDER;
+    return ORDEN;
 }

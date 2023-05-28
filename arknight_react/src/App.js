@@ -1,11 +1,17 @@
-import './App.css';
+import { Layout } from "./layout";
+import { AppRoutes } from "./routes";
+import { BrowserRouter as Router } from "react-router-dom";
 
-function App() {
+export const App = () => {
   return (
     <div className="App">
-      <h1>ARKnight</h1>
+      <Router>
+        <Layout>
+          <AppRoutes />
+        </Layout>
+      </Router>
     </div>
   );
-}
+};
 
 export default App;

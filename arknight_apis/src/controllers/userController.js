@@ -10,14 +10,12 @@ module.exports = {
                     id,
                     nombre,
                     email,
-                    datail: `/api/v1/users/${id}`
+                    datail: `/api/users/${id}`
                 }
             }) 
 
             const RESPONSE = {
                 count: USERS_RESPONSE.length,
-                msg : 'Lista de usuarios', 
-                endpoint: "/users/",
                 users: USERS_RESPONSE,
             };
 
@@ -59,8 +57,6 @@ module.exports = {
 
             if(USER_DATA_RESPONSE !== null) {
                 const RESPONSE = {
-                    msg : 'Detalle del usuario',
-                    endpoint: `/users/${USER_ID}`,
                     user: USER_DATA_RESPONSE,
                 };
                return res.status(200).json(RESPONSE);

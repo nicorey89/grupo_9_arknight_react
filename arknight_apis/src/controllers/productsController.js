@@ -17,7 +17,7 @@ module.exports = {
                     descripcion,
                     imagen,
                     subcategoria,
-                    datail: `/api/v1/products/${id}`
+                    datail: `/api/products/${id}`
                 }
             }) 
             const getProductCountByCategory = (PRODUCTOS) => {
@@ -39,8 +39,6 @@ module.exports = {
             const RESPONSE = {
                 count: PRODUCTOS.length,
                 countByCategory: getProductCountByCategory(PRODUCTOS),
-                msg : 'Lista de productos', 
-                endpoint: "/products/",
                 products: PRODUCTOS_RESPONSE,
             };
 
@@ -59,8 +57,6 @@ module.exports = {
 
             if(PRODUCTO !== null) {
                 const RESPONSE = {
-                    msg : 'Detalle del producto',
-                    endpoint: `/products/${PRODUCT_ID}`,
                     product: PRODUCTO,
                 };
                return res.status(200).json(RESPONSE);

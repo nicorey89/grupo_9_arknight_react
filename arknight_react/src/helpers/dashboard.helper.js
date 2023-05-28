@@ -22,7 +22,7 @@ export const generateCards = (products, users) => {
       color: "danger",
       title: "Total de categorias",
       icon: "fa-layer-group",
-      href: "/#categories"
+      href: "/categories"
     },
   ];
 };

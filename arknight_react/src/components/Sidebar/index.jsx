@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { SidebarLogo } from "./components/Logo";
 import Logo from "../../assets/logo.png";
 import { NavItem } from "./components/NavItem";
+import styles from "./index.module.css"
 
 const TITLE = "Dashboard AR-Knight";
 
@@ -10,7 +11,7 @@ export const Sidebar = () => {
     <>
       {/* <!-- Sidebar --> */}
       <ul
-        className="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion"
+        className={`navbar-nav sidebar accordion ${styles.navegacion}`}
         id="accordionSidebar"
       >
         {/* <!-- Sidebar - Brand --> */}
@@ -21,8 +22,8 @@ export const Sidebar = () => {
         {/* <!-- Nav Item - Dashboard --> */}
         <li className="nav-item active">
           <a className="nav-link" href="/">
-            <i className="fas fa-fw fa-tachometer-alt"></i>
-            <span>{TITLE}</span>
+            <i className='fas fa-fw fa-tachometer-alt'></i>
+            <span className={`${styles.titulo}`}>{TITLE}</span>
           </a>
         </li>
 
@@ -30,7 +31,7 @@ export const Sidebar = () => {
         <hr className="sidebar-divider" />
 
         {/* <!-- Heading --> */}
-        <div className="sidebar-heading">Administrar</div>
+        <div className={`sidebar-heading ${styles.titulo}`}>Administrar</div>
 
         {/* <!-- Nav Items --> */}
        

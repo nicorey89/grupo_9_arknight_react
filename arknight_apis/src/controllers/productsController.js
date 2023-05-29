@@ -10,10 +10,11 @@ module.exports = {
               });
           
             
-            const PRODUCTOS_RESPONSE = PRODUCTOS.map(({id, titulo , descripcion, imagen, subcategoria}) => {
+            const PRODUCTOS_RESPONSE = PRODUCTOS.map(({id, titulo , modelo , descripcion, imagen, subcategoria}) => {
                 return {
                     id,
                     titulo,
+                    modelo,
                     descripcion,
                     imagen,
                     subcategoria,

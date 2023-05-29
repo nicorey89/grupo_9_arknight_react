@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+const Imagen = require.context('../../assets', true)
 
 export const LastDataContainer = ({type, data}) => {
 	const [ infoToDisplay, setInfoToDisplay ] = useState({
 		title: "Título",
-		imageUrl: "default.jpg",
+		imageUrl: "default-image.png",
 		description: "Una descripcion"
 	});
-	const {title, imageUrl, description, name} = infoToDisplay;
+	const {title, lastName, imageUrl, description, name} = infoToDisplay;
 
 	useEffect(() => {
 		if(!data) return;
@@ -16,6 +17,7 @@ export const LastDataContainer = ({type, data}) => {
 			setInfoToDisplay({
 				title: "Último producto agregado: ",
 				name: data.titulo,
+				lastName: data.modelo,
 				imageUrl: data.imagen,
 				description: data.descripcion
 			})
@@ -25,6 +27,7 @@ export const LastDataContainer = ({type, data}) => {
 			setInfoToDisplay({
 				title: "Último usuario agregado: ",
 				name: data.nombre,
+				lastName: data.apellido,
 				imageUrl: data.avatar,
 				description: data.email
 			})
@@ -39,10 +42,10 @@ export const LastDataContainer = ({type, data}) => {
 				</div>
 				<div className="card-body">
 					<div >
-						<h6>{name}</h6>
+						<h6>{name} {lastName}</h6>
 					</div>
 					<div className="text-center">
-						<img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: "40rem"}} src={imageUrl} alt="Imagen" />
+						<img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: "20rem"}} src={Imagen(`./${imageUrl}`)} alt="Imagen" />
 					</div>
 					<p>{description}</p>
 				</div>

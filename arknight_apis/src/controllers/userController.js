@@ -5,10 +5,12 @@ module.exports = {
         try {
             const USUARIOS = await Usuario.findAll();
             
-            const USERS_RESPONSE = USUARIOS.map(({id, nombre , email}) => {
-                return {
+            const USERS_RESPONSE = USUARIOS.map(({id, nombre , avatar, apellido,  email}) => {
+                return { 
                     id,
                     nombre,
+                    apellido,
+                    avatar,
                     email,
                     datail: `/api/users/${id}`
                 }

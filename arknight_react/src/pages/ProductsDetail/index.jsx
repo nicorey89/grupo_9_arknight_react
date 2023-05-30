@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-const Imagen = require.context('../../assets', true)
 
 export const ProductsDetail = () => {
     const [producto, setProducto] = useState([])
+    const [imagen, setImagen] = useState([])
     const params = useParams();
   
     useEffect(() => {
@@ -13,22 +13,27 @@ export const ProductsDetail = () => {
         })
         .then((objeto) => {
             setProducto(objeto.product)
+            setImagen(objeto.product.imagen)
         })
     }, [])
     return (
         <div className="col-lg-6 mb-4">
 			<div className="card shadow mb-4">
 				<div className="card-header py-3">
-					<h5 className="m-0 font-weight-bold text-gray-800">{producto.titulo}</h5>
+					<h3 className="m-0 font-weight-bold text-gray-800">{producto.titulo}</h3>
 				</div>
 				<div className="card-body">
 					<div >
-						<h6>{producto.titulo} {producto.modelo}</h6>
+						<h3>{producto.modelo}</h3>
 					</div>
 					<div className="text-center">
-						<img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: "20rem"}} src={Imagen('./default-image.png')} alt="Imagen" />
+						<img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: "20rem"}} src={`/images/${imagen}`} alt="Imagen" />
 					</div>
+					<p>Descipcion:</p>
 					<p>{producto.descripcion}</p>
+					<p>Precio: {producto.precio}</p>
+					<p>Descuento: {producto.descuento} %Off</p>
+					<p>Cuotas: {producto.cuotas}</p>
 				</div>
 			</div>
 		</div>

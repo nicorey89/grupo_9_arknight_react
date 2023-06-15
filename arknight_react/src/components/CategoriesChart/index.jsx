@@ -1,8 +1,7 @@
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Chart as ChartJS, CategoryScale, Tooltip, Legend } from "chart.js";
 import { useEffect, useState } from "react";
-import { Pie } from "react-chartjs-2";
-ChartJS.register(ArcElement, Tooltip, Legend);
-
+import { Bar } from "react-chartjs-2";
+ChartJS.register(CategoryScale, Tooltip, Legend);
 export const CategoriesChart = ({ countByCategory }) => {
   const [categories, setCategories] = useState(null);
   const [counts, setCounts] = useState(null);
@@ -44,18 +43,18 @@ export const CategoriesChart = ({ countByCategory }) => {
     });
   }, [categories, counts]);
 
-  if(!categories || !counts ) return <h1> Cargando... </h1>
+  if (!categories || !counts) return <h1>Cargando...</h1>;
 
   return (
     <div className="col-lg-6 mb-4" id="categories">
       <div className="card shadow mb-4">
         <div className="card-header py-3">
           <h5 className="m-0 font-weight-bold text-gray-800">
-            Productos por categoria
+            Productos por categoría
           </h5>
         </div>
         <div className="card-body">
-          <Pie data={data} />
+          <Bar data={data} />
         </div>
       </div>
     </div>
